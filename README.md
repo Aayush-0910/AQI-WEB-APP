@@ -1,6 +1,6 @@
 <!-- # Project Link : [Click here](https://mohit5upadhyay.github.io/WeatherApplication/) -->
 
-# Weather App [Click here](https://mohit5upadhyay.github.io/WeatherApplication/)
+# Weather App [Click here](https://weatheraqi.netlify.app/)
 
 ## Overview
 
