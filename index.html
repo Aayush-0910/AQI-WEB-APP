@@ -3,186 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQI INSIGHTS </title>
-     
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
-    <script src="https://kit.fontawesome.com/a6b0b5c0e4.js" crossorigin="anonymous"></script>
-
+    <title>AQI INSIGHTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAB5CAMAAAAqJH57AAAAt1BMVEX///8ate3/wQYAseyP1fT/vgD/vAAAs+wAtPIAtPX/+Oj//ff///3/xzsAruv/ugD/1nj/7sv2/P5Zw/Dp9/3/2IP/57T/89j/3ZD/9N3/2on/zln/5a3/6bz/4aH/7MX/0GXb8ftuyfG24/j/yk7/xS7/wyH/yUX/03DM6vqn3fd+z/NHvvBWu9xhu9CDvLatv5fSv23rwUF8u77kwk26wIhDuOHzwi3FwHd2uMTCv36ewKnW2LPgBjeNAAAEB0lEQVRoge2Y2ZaiMBBAJZigouIuiuLWuNv79Kz//12TICjYQooQ23Nmch85kWsVlUpBoaBQKBQKhUKhyM2g26veRdy3sNW9i7mLEUKVe5gb/7zZHNkDrtkcDfvSzQ4hKK6+Yp4Sgi/+X24qVIOd2KWRhfCDGb0yYYtsyWaTBUgmsWtDtIoFWPXoGuxKNhdspl6mLnHZEiS9uZgsIDJOW8LEOHWFGGOCkMUz4wf54kJ1TUgtdYWLyVJ2ZR/VzYmZvqI/uUtL+zIqY9e1bbfX/9KDsjJysEUwg1iWZze/yDtxiL9xT9DCcjkVkJVrt2uucNx7lCP7ymJT8EmYa281ubzWuKI9ur3LtZWGV7u8BsOmrQNPY/ukv0wSswZnR0OsunQtFuulU78b4tH5yjjFy9TTc8YrNeJfEtrgPYLiP6bHYjrYOanX/p/EKxExDRGxn1thQ+zxxKxtB9mtOv6fbgiXvE0wcYKbTQhXTNXr09+kv8zTxCu2G4grS4A4Mhg0h2J1/ZlpenWd1bIPDU5ZR3D4N8sELNcMS24X70HKK0DuWLKCi5Elc9gf8LfyGSzzBTPxnLjKUsaR2dlsd+32/vD49PzyCjWT3OnubNuarhsMvVQua4/PMHneF5zZ3NANLUqprL29Q9TTXPHO63FtKH/6zjc/5HjQW/2a13dr37hmL+ig1ZFLyfK+02rXE7yM8htXfTSbnj+fWg2wuKMlBRyEfeBl/Hg8joPGt4QeIjwxVX9w1EdzM6O5xRVzow5VXcSyjUbpwhNtvpj3rGthbQ/6FGiuizpATNXPKWZHZNbdpFV1LOEpPWUqIG7tIbn2zY+JYgJ9sFG20JCp+keSWWQUg4esacYhySzSPBew8jpSfvn+/v7++mlCE/oiBtpRJz4+6NbfH37+im9ukXepThZviEEPz6fIwY3hbfpMpmRHKZV/5wq5sMuU7BjlsJXjoYC4AOjYiRhBa0n/NJpAS9zrq9nDxsH0V+16DXjahQrsTOnDO+8omyAM+2LUmhXn2fbUZ8pPKJw6j2/uuMZ9x2oVtTodb/OJadR/Tne0g6mAc2ottMSBLxPG/HTLatcCbLEd/JjgqWfnuw4e6PyX/ll6J9o/PqMXozeerIepJZbhYORi7FNjjDOTFzGjAzfPpdRWiFFczFowcUeqmKp1fb8FmYGjZiZ5fQ/Jed6+dd1t8NVZBq8sao37sHMeEsnqIs88u5FZM3hB3ypmTV/c5znTmHe8dN+ktrXYsZXAVv5+BppvVtzcbMs8I6NwKwzyVUTMDDg3NrcIGpDsgtzRIBTzu6fPQs78FxEbG5CYPuv91Y+coujajO8M2cyNui6HugabDE60NtuiDLYZ4lUoFAqFQqH43/gLQCdJ0kdhVnYAAAAASUVORK5CYII=" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel = "stylesher`et" href="style.css">
-
-    <script src="script.js" defer></script>
-    <script src="dark-mode.js" defer></script>
-    <script src="h.js" defer></script>
-    <
-    <style>
-        #windy {
-            width: 100%;
-            height: 350px;
-        }
-
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px; /* Adjust as needed */
-            right: 20px; /* Adjust as needed */
-            z-index: 1000; /* Ensure it appears above other elements */
-        }
-
-        .chatbot-button {
-            background-color: #007bff; /* Change to your preferred color */
-            border: none;
-            border-radius: 50%;
-            padding: 5px; /* Smaller padding */
-            cursor: pointer;
-            position: relative;
-            width: 50px; /* Adjusted size */
-            height: 50px; /* Adjusted size */
-        }
-
-        .chatbot-button img {
-            width: 30px; /* Adjusted image size */
-            height: 30px; /* Adjusted image size */
-        }
-
-        .tooltip-text {
-            display: none; /* Hide by default */
-            position: absolute;
-            bottom: 100%; /* Position above the button */
-            right: 50%;
-            transform: translateX(50%);
-            background-color: #333; /* Background color for tooltip */
-            color: #fff; /* Tooltip text color */
-            padding: 5px;
-            border-radius: 5px;
-            white-space: nowrap; /* Prevent text from wrapping */
-        }
-
-        .chatbot-button:hover .tooltip-text {
-            display: block; /* Show on hover */
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/@lxg/weather-icons@latest/dist/weather-icons.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/a6b0b5c0e4.js" crossorigin="anonymous"></script>
 </head>
-
-<body> 
+<body>
     <h1>
-        <img src="logoo.png" alt="Logo" class="logo"> AQI INSIGHTS
-        <nav>
-            <input type="checkbox" id="hamburger"/>
-            <label for="hamburger">
-                <i class="fa-solid fa-bars" style="color: #ced4de;"></i>
-        </label>
-            <ul>
-              <li><a href="index.html">Home<span></span></a></li>
-  
-           
-            </ul>
-          </nav>
-        <button class="dark-mode-toggle"><i class="fas fa-sun"></i></button>
+        <div class="header-left">
+            <img src="logoo.png" alt="Logo" class="logo">
+            <span>AQI INSIGHTS</span>
+        </div>
+        <div class="header-right">
+            <button class="dark-mode-toggle" title="Toggle dark mode"><i class="fas fa-sun"></i></button>
+            <button class="unit-toggle" title="Toggle temperature unit">°C / °F</button>
+        </div>
     </h1>
-    
-    <div class="container">
-        <div class="weather-input">
-            <div class="search-sec">
-                <h3>Enter Location </h3>
-                <input type="text" class="city-input" placeholder="E.g ; Agra, Firozabad, Tundla">
-                <button class="search-btn"> Search </button>
-                <div class="separator"></div>
-                <button class="location-btn"> Use Current Location </button>
-            </div>
 
-            <div class="map-sec">
-                <div id="windy"></div>
+    <div class="main-container">
+        <div class="weather-input">
+            <h3>Enter Location</h3>
+            <div class="city-search-container">
+                <input type="text" class="city-input" placeholder="E.g., Agra, Firozabad, Tundla">
+                <div class="autocomplete-container"></div>
+            </div>
+            <button class="search-btn">Search</button>
+            <div class="separator">or</div>
+            <button class="location-btn">Use Current Location</button>
+            <div class="search-history">
+                <h3>Search History</h3>
+                <ul id="history-list"></ul>
+                <button class="clear-history-btn">Clear History</button>
             </div>
         </div>
+
         <div class="weather-data">
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading weather data...</p>
+            </div>
             <div class="current-weather">
                 <div class="details">
-                    <h2> _________ ( ________ )</h2>
-                    <h4>Temperature : ____</h4>
-                    <h4>Wind Speed : _____ M/s</h4>
-                    <h4>Humidity : ____ %</h4>
-                    <h4>air quality :____</h4>
-
+                    <h2>City (Date)</h2>
+                    <h4>Temperature: __°C</h4>
+                    <h4>Wind Speed: __ M/S</h4>
+                    <h4>Humidity: __%</h4>
+                    <h4>Air Quality: __</h4>
                 </div>
-                <div class="graph-sec">
-                    <img src="graph.png" alt="line-graph" id="line-grap">
-
+                <div class="icon">
+                    <!-- Weather icon will be dynamically inserted here -->
+                    <h4>Weather Condition</h4>
                 </div>
             </div>
+            <div class="chart-container">
+                <canvas id="aqi-chart"></canvas>
+            </div>
+
             <div class="days-forecast">
-                <h5>5 - Days Forecast </h5>
+                <h5>5-Day Forecast</h5>
                 <ul class="weather-cards">
-                    <li class="card">
-                        <h3> _______ ( _____ )</h3>
-                        <h4>Desc : ____</h4>
-                        <h4>Temperature : _____</h4>
-                        <h4>Wind Speed : _____ M/s</h4>
-                        <h4>Humidity : ____ %</h4>
-                        <h4>air quality :____</h4>
-                    </li>
-                    <li class="card">
-                        <h3> ______ ( _____ )</h3>
-                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon">
-                        <h4>Desc : ____</h4>
-                        <h4>Temperature : _____</h4>
-                        <h4>Wind Speed : _____ M/s</h4>
-                        <h4>Humidity : ____ %</h4>
-                        <h4>air quality :____</h4>
-                    </li>
-                    <li class="card">
-                        <h3>______ ( _____ )</h3>
-                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon">
-                        <h4>Desc : ____</h4>
-                        <h4>Temperature : _____</h4>
-                        <h4>Wind Speed : _____ M/s</h4>
-                        <h4>Humidity : ____ %</h4>
-                        <h4>air quality :____</h4>
-                    </li>
-                    <li class="card">
-                        <h3>______ ( _____ )</h3>
-                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon">
-                        <h4>Desc : ____</h4>
-                        <h4>Temperature : _____</h4>
-                        <h4>Wind Speed : _____ M/s</h4>
-                        <h4>Humidity : ____ %</h4>
-                        <h4>air quality :____</h4>
-                    </li>
-                    <li class="card">
-                        <h3>______ ( _____ )</h3>
-                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon">
-                        <h4>Desc : ____</h4>
-                        <h4>Temperature : _____</h4>
-                        <h4>Wind Speed : _____ M/s</h4>
-                        <h4>Humidity : ____ %</h4>
-                        <h4>air quality :____</h4>
-                    </li>
+                    <!-- Cards will be dynamically inserted here -->
                 </ul>
             </div>
+            <div class="hourly-forecast">
+                <h5>Hourly Forecast</h5>
+                <ul class="hourly-cards">
+                    <!-- Cards will be dynamically inserted here -->
+                </ul>
+            </div>
+            <div class="recommendations">
+                <h5>Recommendations</h5>
+                <p id="recommendation-text"></p>
+            </div>
+            
         </div>
     </div>
 
-
-    <!-- Footer -->
     <div class="footer">
-        <div class="more-info">
-            <p>© Copyright 2025, https://www.accuweather.com/ All Rights Reserved</p> 
-            <p> For More Info Please Visit: -  
-                <a href="https://www.accuweather.com/" target="_blank">https://www.accuweather.com/</a>
-            </p>
-        </div>
-        <div class="social-media">
-            <ul>
-                <li><i class="fa-brands fa-youtube" style="color: #e60505;"></i> <a href="https://www.youtube.com/channel/UC_qxTReoq07UVARm87CuyQw/featured?view_as=subscriber" target="_blank">Youtube</a></li>
-                <li><i class="fa-brands fa-square-x-twitter" style="color: #0a0a0a;"></i> <a href="https://twitter.com/Indiametdept" target="_blank">Twitter</a></li>
-                <li><i class="fa-brands fa-linkedin" style="color: #2267dd;"></i><a href="#">LinkedIn</a></li>
-            </ul>
-        </div>
+        <p>&copy; 2025 AQI INSIGHTS. All Rights Reserved.</p>
+        <p>Powered by <a href="https://openweathermap.org/" target="_blank" rel="noopener">OpenWeatherMap</a></p>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
