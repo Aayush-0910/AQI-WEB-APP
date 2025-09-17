@@ -6,27 +6,45 @@
     <title>AQI INSIGHTS</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/@lxg/weather-icons@latest/dist/weather-icons.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://kit.fontawesome.com/a6b0b5c0e4.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
 </head>
 <body>
     <h1>
-        <img src="logoo.png" alt="Logo" class="logo">
-        <span>AQI INSIGHTS</span>
-        <button class="dark-mode-toggle"><i class="fas fa-sun"></i></button>
+        <div class="header-left">
+            <img src="logoo.png" alt="Logo" class="logo">
+            <span>AQI INSIGHTS</span>
+        </div>
+        <div class="header-right">
+            <button class="dark-mode-toggle" title="Toggle dark mode"><i class="fas fa-sun"></i></button>
+            <button class="unit-toggle" title="Toggle temperature unit">°C / °F</button>
+        </div>
     </h1>
 
     <div class="main-container">
         <div class="weather-input">
             <h3>Enter Location</h3>
-            <input type="text" class="city-input" placeholder="E.g., Agra, Firozabad, Tundla">
+            <div class="city-search-container">
+                <input type="text" class="city-input" placeholder="E.g., Agra, Firozabad, Tundla">
+                <div class="autocomplete-container"></div>
+            </div>
             <button class="search-btn">Search</button>
             <div class="separator">or</div>
             <button class="location-btn">Use Current Location</button>
+            <div class="search-history">
+                <h3>Search History</h3>
+                <ul id="history-list"></ul>
+                <button class="clear-history-btn">Clear History</button>
+            </div>
         </div>
 
         <div class="weather-data">
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Loading weather data...</p>
+            </div>
             <div class="current-weather">
                 <div class="details">
                     <h2>City (Date)</h2>
@@ -36,9 +54,12 @@
                     <h4>Air Quality: __</h4>
                 </div>
                 <div class="icon">
-                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon">
+                    <!-- Weather icon will be dynamically inserted here -->
                     <h4>Weather Condition</h4>
                 </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="aqi-chart"></canvas>
             </div>
 
             <div class="days-forecast">
@@ -47,16 +68,27 @@
                     <!-- Cards will be dynamically inserted here -->
                 </ul>
             </div>
+            <div class="hourly-forecast">
+                <h5>Hourly Forecast</h5>
+                <ul class="hourly-cards">
+                    <!-- Cards will be dynamically inserted here -->
+                </ul>
+            </div>
+            <div class="recommendations">
+                <h5>Recommendations</h5>
+                <p id="recommendation-text"></p>
+            </div>
+            
         </div>
     </div>
 
-    <div id="windy"></div>
-
     <div class="footer">
         <p>&copy; 2025 AQI INSIGHTS. All Rights Reserved.</p>
-        <p>Powered by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a></p>
+        <p>Powered by <a href="https://openweathermap.org/" target="_blank" rel="noopener">OpenWeatherMap</a></p>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
     <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
